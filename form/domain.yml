@@ -1,0 +1,104 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - subscribe
+  - my_name_is
+  - user_id
+  - phone_number
+  - vehicle_no
+  - amount
+  - email
+  - monthly_chare
+  - devaice_installation
+
+entities:
+- NAME
+- USERID
+- PHONENUMBER
+- LICENSE
+- AMOUNT
+- EMAIL
+
+forms:
+- form_info
+
+actions:
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_ask_NAME
+- utter_ask_USERID
+- utter_ask_PHONENUMBER
+- utter_ask_LICENSE
+- utter_ask_EMAIL
+- utter_ask_AMOUNT
+- utter_ask_payment
+
+
+slots:
+  NAME:
+    type: unfeaturized
+  USERID:
+    type: unfeaturized
+  PHONENUMBER:
+    type: unfeaturized
+  LICENSE:
+    type: unfeaturized
+  AMOUNT:
+    type: unfeaturized
+  EMAIL:
+    type: unfeaturized
+
+responses:
+  utter_submit:
+  - text: "NAME:{name}, USERID:{userid}, PHONE:{phone_number}, LICENSE:{license}, AMOUNT:{amount}, EMAIL:{email}, Payment Type is:{payment}"
+  utter_ask_NAME:
+  - text: "Please enter your name..."
+  utter_ask_USERID:
+  - text: "Enter your valid User ID"
+  utter_ask_PHONENUMBER:
+  - text: "Enter your Phone Number"
+  utter_ask_LICENSE:
+  - text: "Now Enter your LICENSE"
+  utter_ask_AMOUNT:
+  - text: "Now Enter your amount in TAKA"
+  utter_ask_EMAIL:
+  - text: "Now last one enter your valid email address..."
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_ask_payment:
+  - text: "Choose your Condition"
+    buttons:
+    - title: "Monthly Charge"
+      payload: "/monthly_chare"   
+    - title: "Devaice and Installation"
+      payload: "/devaice_installation"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
